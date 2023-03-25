@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<body>
+<h2 style="color: rosybrown; font-family: sans-serif" th:text="${welcome}"></h2>
+<h3 style="font-family: sans-serif">Please enter a number: </h3><br/>
+<form method="post" action="http://localhost:8080/game">
+    Number: <input name="tal" type="text" size="8" value="" placeholder="number"/>
+    <br/>
+    <input name="submit" type="submit" value="Send"/>
+</form>
+<p th:text="${game}"></p>
+
+<table>
+    <thead>
+    <tr>
+        <th6 style="font-family: sans-serif">Guesses:</th6>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="guess : ${guesses}">
+        <td th:text="${guess}"></td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a href="/top10">Top 10 Players</a>
+</body>
+</html>
