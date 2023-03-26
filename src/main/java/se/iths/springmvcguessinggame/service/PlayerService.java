@@ -7,7 +7,7 @@ import se.iths.springmvcguessinggame.entity.Player;
 import se.iths.springmvcguessinggame.entity.Result;
 import se.iths.springmvcguessinggame.repository.PlayerRepo;
 
-import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -32,19 +32,13 @@ public class PlayerService {
     public String welcomeAndSavePlayerIfNew(Player player){
         if(repo.existsByUsername(player.getUsername())){
             update(player);
-            return "WELCOME BACK " + player.getUsername();
+            return "Welcome back, " + player.getUsername();
         } else {
             repo.save(player);
-            return "WELCOME " + player.getUsername();
+            return "Welcome, " + player.getUsername();
         }
     }
 
-  /*  public void update(Player player) {
-        if (repo.existsByUsername(player.getUsername())) {
-            Player existingPlayer = repo.findByUsername(player.getUsername()).get(0);
-            existingPlayer.setResults(player.getResults());
-            repo.save(existingPlayer);
-      }  }*/
   public void update(Player player) {
       if (repo.existsByUsername(player.getUsername())) {
           Player existingPlayer = repo.findByUsername(player.getUsername()).get(0);

@@ -3,13 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>New user</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            width: 20%;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 3px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
-
 <h3>Please type in your name</h3>
 <form th:action="@{/user}" method="post" th:object="${player}">
-    Username: <input type="text" th:field="*{username}">
-    </br>
+    <label>Username:</label>
+    <input type="text" th:field="*{username}">
+    <br>
     <input type="submit" name="Submit">
 </form>
 </body>
